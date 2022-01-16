@@ -5,13 +5,21 @@ const { Category, Product } = require('../../models');
 
 router.get('/', (req, res) => {
   // find all categories
-  Category.findAll({})
+  Category.findAll({
+    //include its associated Products
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'product_name','price','stock','category_id']
+      }
+    ]
+  })
   .then(dbData=>res.json(dbData))
   .catch(err=>{
     console.log(err);
     res.status(500).json(err);
   })
-  // be sure to include its associated Products
+  
 });
 
 router.get('/:id', (req, res) => {
@@ -19,7 +27,14 @@ router.get('/:id', (req, res) => {
   Category.findOne({
     where:{
       id: req.params.id
-    }
+    },
+    //  include its associated Products
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'product_name','price','stock','category_id']
+      }
+    ]
   }).then(dbData=>{
     if(!dbData){
       res.status(404).json({message: "No category was found with this Id!"})
@@ -29,7 +44,7 @@ router.get('/:id', (req, res) => {
     console.log(err);
     res.status(500).json(err)
   })
-  // be sure to include its associated Products
+  
 });
 
 router.post('/', (req, res) => {
@@ -76,7 +91,7 @@ router.delete('/:id', (req, res) => {
   .catch(err=>{
     console.log(err);
     res.status(500).json(err);                                                                                                                               
-  })
+  });
 });
 
-module.exports = router;
+module.exports=router;
