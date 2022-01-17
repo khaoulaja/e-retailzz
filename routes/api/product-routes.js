@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
   // find all products
   Product.findAll({
     //  include product associated Category and Tag data
+    
     include:[
       {
         model: Category,
@@ -48,7 +49,8 @@ router.get('/:id', (req, res) => {
     ]
   }).then(dbData=>{
     if (!dbData) {
-      res.status(404).json({message: 'Product not found!'})
+      res.status(404).json({message: 'No product was found with this Id!'});
+      return;
     }
     res.json(dbData)
   }).catch(err=>{
@@ -140,7 +142,8 @@ router.delete('/:id', (req, res) => {
     }
   }).then(dbData=>{
     if (!dbData) {
-      res.status(404).json({message: 'Product not found!'})
+      res.status(404).json({message: 'No product was found with this Id!'});
+      return;
     }
     res.json(dbData)
   }).catch(err=>{

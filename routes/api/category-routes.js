@@ -37,7 +37,8 @@ router.get('/:id', (req, res) => {
     ]
   }).then(dbData=>{
     if(!dbData){
-      res.status(404).json({message: "No category was found with this Id!"})
+      res.status(404).json({message: "No category was found with this Id!"});
+      return;
     }
     res.json(dbData)
   }).catch(err=>{
@@ -67,7 +68,8 @@ router.put('/:id', (req, res) => {
     }
   }).then(dbData=>{
     if(!dbData){
-      res.status(404).json({message : 'No category was found with this Id!'})
+      res.status(404).json({message : 'No category was found with this Id!'});
+      return;
     }
     res.json(dbData);
   }).catch(err=>{
@@ -85,7 +87,8 @@ router.delete('/:id', (req, res) => {
     }
   }).then(dbData=>{
     if(!dbData){
-      res.status(404).json({message: 'No category was found with this Id!'})
+      res.status(404).json({message: 'No category was found with this Id!'});
+      return;
     }
     res.json(dbData)})
   .catch(err=>{
