@@ -1,7 +1,7 @@
 {
   "name": "e-retailzz",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a back end for an e-commerce website that uses the latest technologies. <br/><br/>",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@work.github.com:coding-boot-camp/module-13-challenge-orm.git"
+    "url": "git+https://github.com/khaoulaja/e-retailzz"
   },
   "keywords": [],
-  "author": "",
+  "author": "Khaoula",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.3"
