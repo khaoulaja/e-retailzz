@@ -14,7 +14,7 @@
   ## Installation
 
   * First of all you need to have MySQL installed in your machine, to do that refer to [mysql-installation-guide](https://coding-boot-camp.github.io/full-stack/mysql/mysql-installation-guide).<br/>
-  * To install the dependencies run the following command after going to application's file with git bash : <br/>
+  * To install the dependencies run the following command after going to the application's file with git bash : <br/>
    - npm install
   
   ## Usage 
